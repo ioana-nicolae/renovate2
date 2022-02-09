@@ -1,0 +1,48 @@
+{
+  "scanSettings": {
+    "configMode": "AUTO",
+    "configExternalURL": "",
+    "projectToken": "",
+    "baseBranches": []
+  },
+  "checkRunSettings": {
+    "vulnerableCheckRunConclusionLevel": "failure",
+    "displayMode": "diff"
+  },
+  "issueSettings": {
+    "minSeverityLevel": "LOW"
+  },
+  "remediateSettings": {
+    "enableRenovate": true,
+    "addLabels": ["dependencies", "renovate"],
+    "dependencyDashboardApproval": true,
+    "dependencyDashboardLabels": ["dependencies", "renovate"],
+    "enabledManagers": ["npm"],    
+    "extends": [
+      "config:base"
+    ],
+    "packageRules": [
+      {
+        "matchPackagePrefixes": ["@tiptap/"],
+        "groupName": "TipTap"
+      },
+      {
+        "matchPackagePrefixes": ["@sentry/"],
+        "groupName": "Sentry"
+      }
+    ],
+    "postUpdateOptions": [
+      "yarnDedupeHighest"
+    ],
+    "prConcurrentLimit": 3,
+    "rangeStrategy": "update-lockfile",
+    "repositories": [
+      "ashbyhq/Ashby"
+    ],
+    "reviewers": ["benasher44"],
+    "stabilityDays": 14,
+    "workflowRules": {
+      "enabled": true
+    }
+  }
+}
